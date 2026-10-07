@@ -1,0 +1,11 @@
+{
+  "name": "Vesper Cine",
+  "short_name": "Vesper Cine",
+  "icons": [
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/img/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#0A0A0B",
+  "background_color": "#0A0A0B",
+  "display": "browser"
+}
