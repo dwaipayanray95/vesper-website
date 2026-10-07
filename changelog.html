@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changelog · Vesper Cine</title>
+<meta name="description" content="Release notes for Vesper Cine, the RAW-to-Apple Log cinema camera app for Google Pixel.">
+<link rel="canonical" href="https://vesper.theawesomeray.com/changelog.html">
+<meta name="theme-color" content="#0A0A0B">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Pinyon+Script&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+<a class="skip" href="./#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Vesper Cine home"><img src="assets/img/icon.svg" alt="" width="26" height="26">Vesper Cine</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="./#pipeline">How it works</a>
+      <a href="./#features">Features</a>
+      <a href="./#devices">Devices</a>
+      <a href="./#pricing">Pricing</a>
+      <a href="./#faq">FAQ</a>
+      <!-- PLACEHOLDER: replace href with the Play Store listing URL -->
+      <a class="btn btn-primary" href="./#pricing">Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+<div class="wrap">
+<p class="label">Release notes</p>
+<h1><span class="script">Changelog</span></h1>
+<p class="lede">What has changed in each version of Vesper Cine, newest first. These notes match the ones in the app under Settings › Info.</p>
+<article class="release"><h2>Version 0.21.0</h2><ul><li>Image &amp; NR › Hot Pixel Calibration: cover the lens for about a minute and this phone&#x27;s own hot pixels are always removed (was developer-only)</li><li>Image &amp; NR › NR Character: TEXTURE (default, most fine detail) or SMOOTH (cleaner low-light footage, slightly softer texture). Was the developer switch &quot;Calibrated Noise Model&quot;</li></ul></article>
+<article class="release"><h2>Version 0.20.0</h2><ul><li>Calibrated Noise Model (Developer) is OFF by default and now only affects midtones and highlights: in a still daylight test it removed no visible grain but softened fine texture slightly. Shadows and high ISO always use the measured sensor noise</li><li>The heat badge only appears when the phone is hot enough for the app to step processing down (HOT / VERY HOT); the old WARM stage changed nothing and is no longer shown</li></ul></article>
+<article class="release"><h2>Version 0.19.0</h2><ul><li>Recording Quality is HIGH by default: measured on your clips, the frames between keyframes now keep about 90% of the fine detail instead of 75%, so sharpness no longer &quot;breathes&quot; once a second</li><li>For MAX quality use HEVC: on the Pixel 10 the HEVC encoder goes up to 240 Mb/s, the AV1 encoder is rated to 60 Mb/s</li></ul></article>
+<article class="release"><h2>Version 0.18.0</h2><ul><li>Recording Quality (Settings › Recording): STANDARD, HIGH (2x bitrate) or MAX (3x). At standard bitrate the encoder kept 35-45% less fine detail in the frames between its once-a-second keyframes (sharpness &quot;breathing&quot; in your 6 Oct clips)</li></ul></article>
+<article class="release"><h2>Version 0.17.0</h2><ul><li>Noise reduction, motion alignment and sharpening now use the Pixel 10&#x27;s measured noise in bright areas too (the camera&#x27;s own figure was about a third too low at every ISO): smoother midtones and skies, less sharpened grain</li><li>Developer: Calibrated Noise Model ON/OFF switch to compare footage with the camera&#x27;s own noise figure</li></ul></article>
+<article class="release"><h2>Version 0.16.0</h2><ul><li>Each phone calibrates itself: Sensor Calibration · Dark (Settings › Developer) now saves this phone&#x27;s own hot-pixel map and noise table and uses them straight away (every phone has different hot pixels). Running it again adds any new hot pixels</li><li>Without a Dark run the Pixel 10 still gets the measured noise correction for its sensor model; the hot-pixel map from 0.15.1 (one specific phone) is no longer shipped</li></ul></article>
+<article class="release"><h2>Version 0.15.1</h2><ul><li>Hot pixels: the ~650 known hot pixels of the Pixel 10 main camera (measured with the new dark calibration) are repaired before any processing, and the automatic repair catches far more of the rest. At high ISO about 95-100% are now removed (was ~12%)</li><li>Noise reduction and motion alignment use the measured sensor noise: from ISO ~1000 up the camera&#x27;s own figure was 40% too low in the shadows, so NR was too weak there</li></ul></article>
+<article class="release"><h2>Version 0.15.0</h2><ul><li>Sensor calibration without a colour chart (developer builds, Settings › Developer): DARK (lens covered) and WHITE (paper over the lens, daylight) sweeps measure noise, black level, lens shading, clip point, linearity and hot pixels; results go to Download/Vesper Calibration</li><li>Calibration Frame also saves a DNG with the full camera metadata (Google AWB, noise profile, colour matrices, lens-shading map), and works with Settings open</li></ul></article>
+<article class="release"><h2>Version 0.14.1</h2><ul><li>Faster HQ oversampling (about 1.4 ms less GPU time per frame, same image)</li><li>Heat safeguard keeps quality much longer: it steps down at most once a minute and only while the phone keeps heating up; noise reduction stays on until &quot;severe&quot;</li></ul></article>
+<article class="release"><h2>Version 0.14.0</h2><ul><li>Fixed: &quot;swimming&quot; grain in dark areas with motion alignment on (worst towards the frame edges). The motion search no longer mistakes noise for movement</li><li>Heat safeguard: when Android forecasts the phone getting too hot, processing steps down gently (one stage every ~15 s) instead of the take being cut; at &quot;severe&quot; the take continues with minimal processing and stops only at &quot;critical&quot;</li><li>Heat badge shows WARM / HOT / VERY HOT</li><li>Viewfinder-off power saver: the REC text moves every minute so it can&#x27;t burn into the OLED screen</li><li>GPU A/B Test (developer builds): wide HQ tiles experiment</li></ul></article>
+<article class="release"><h2>Version 0.13.4</h2><ul><li>Safer recording: if the encoder or storage fails mid-take, the clip is finished and saved with everything recorded so far (instead of the app freezing)</li><li>If the microphone delivers nothing, the take records without audio instead of filling the phone&#x27;s memory</li><li>A take cut off by a crash or the app being closed is no longer hidden: it shows up in the gallery at the next launch (…_INCOMPLETE.mp4 if it needs repair)</li></ul></article>
+<article class="release"><h2>Version 0.13.3</h2><ul><li>HQ detail is more accurate towards the frame corners: lens-shading correction now matches the rest of the image per pixel (no extra GPU cost)</li></ul></article>
+<article class="release"><h2>Version 0.13.2</h2><ul><li>GPU A/B Test (developer builds): each speed-up experiment against the normal path in alternating blocks, so the phone heating up cancels out</li></ul></article>
+<article class="release"><h2>Version 0.13.1</h2><ul><li>While recording, paused processing (e.g. HQ on a hot phone) comes back only with clear headroom and at most every 30 s: no more sharpness pumping in a clip</li><li>Slightly faster viewfinder/recording step on the GPU</li><li>GPU Benchmark corrects for the phone warming up during the run</li></ul></article>
+<article class="release"><h2>Version 0.13.0</h2><ul><li>The screen no longer dims or locks while Vesper is open</li><li>Power Saver While Recording (Settings › Recording): dim the screen, or also pause the viewfinder, 10 s into a take; tap to wake. The recording is not affected</li></ul></article>
+<article class="release"><h2>Version 0.12.3</h2><ul><li>GPU Benchmark (developer builds) stops with a message if the camera restarts or the GPU guard steps in, instead of showing wrong numbers</li></ul></article>
+<article class="release"><h2>Version 0.12.2</h2><ul><li>GPU Benchmark (developer builds) tries exact vignetting in HQ, bigger HQ tiles and other GPU work-group sizes</li></ul></article>
+<article class="release"><h2>Version 0.12.1</h2><ul><li>No dropped frame when recording starts (the viewfinder no longer changes size)</li></ul></article>
+<article class="release"><h2>Version 0.12.0</h2><ul><li>At 30 fps temporal NR keeps its motion alignment: when the GPU is tight it runs every 4th frame (ALIGN REDUCED) instead of switching off</li><li>Faster motion alignment (about 1–1.5 ms less GPU time per frame)</li></ul></article>
+<article class="release"><h2>Version 0.11.6</h2><ul><li>Raw-copy experiment from 0.11.5 removed (it was slower)</li><li>GPU Benchmark (developer builds) breaks HQ and alignment down further and tries three speed-ups</li></ul></article>
+<article class="release"><h2>Version 0.11.5</h2><ul><li>Noise-reduction change from 0.11.4 undone (it measured slower on the phone)</li><li>GPU Benchmark (developer builds) measures the cost of each GPU pass and scrolls when long</li></ul></article>
+<article class="release"><h2>Version 0.11.4</h2><ul><li>Faster temporal and chroma noise reduction on the GPU (identical image)</li><li>GPU Benchmark compares against the 0.11.3 and 0.11.2 shaders; app log starts with the app version</li></ul></article>
+<article class="release"><h2>Version 0.11.3</h2><ul><li>Faster HQ oversampling and sharpening on the GPU (identical image)</li><li>GPU Benchmark (developer builds) ends with an A/B: new vs previous shaders</li></ul></article>
+<article class="release"><h2>Version 0.11.2</h2><ul><li>Settings: each category opens scrolled to the top</li></ul></article>
+<article class="release"><h2>Version 0.11.0</h2><ul><li>New Settings layout: categories on the left, their settings on the right</li><li>Info tab: version, changelog, how-to and FAQ</li><li>GPU guard is always on in release builds (developer option otherwise)</li></ul></article>
+<article class="release"><h2>Version 0.10.5</h2><ul><li>Cleaner image corners in dark scenes: noise reduction follows the lens-shading gain</li></ul></article>
+<article class="release"><h2>Version 0.10.4</h2><ul><li>Changing the frame rate turns all processing back on, then pauses only what that rate can&#x27;t carry</li></ul></article>
+<article class="release"><h2>Version 0.10.1</h2><ul><li>Viewfinder drawn at its on-screen size: no swirly moiré in noise</li></ul></article>
+<article class="release"><h2>Version 0.10.0</h2><ul><li>In-app log for testing (developer builds)</li></ul></article>
+<article class="release"><h2>Version 0.9.0</h2><ul><li>GPU guard brings paused processing back when it fits again</li><li>The guard is always active while recording; warning if a frame rate can&#x27;t be sustained</li></ul></article>
+<article class="release"><h2>Version 0.8.3</h2><ul><li>Faster temporal noise reduction and HQ oversampling (16-bit maths)</li></ul></article>
+<article class="release"><h2>Version 0.8.1</h2><ul><li>Less viewfinder lag: the newest frame is always shown</li></ul></article>
+<article class="release"><h2>Version 0.8.0</h2><ul><li>Smooth viewfinder: drawn straight to the display</li></ul></article>
+<article class="release"><h2>Version 0.7.0</h2><ul><li>Faster HQ oversampling, processing pauses while Settings is open, microphone required</li></ul></article>
+<article class="release"><h2>Version 0.6.0</h2><ul><li>Both landscape orientations, clean auto-exposure (native ISO first), updates install over each other</li></ul></article>
+<article class="release"><h2>Version 0.5.0</h2><ul><li>HQ oversampling: full-sensor detail, anti-aliased to 1080p</li></ul></article>
+<article class="release"><h2>Version 0.4.0</h2><ul><li>Sharper image (bicubic + noise-aware sharpening), focus magnifier (MAG)</li></ul></article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="./"><img src="assets/img/icon.svg" alt="" width="26" height="26">Vesper Cine</a>
+        <p class="lede" style="margin-top:18px;font-size:16px">A cinema camera app for Google Pixel. RAW in, Apple Log out.</p>
+      </div>
+      <div>
+        <p class="label">Product</p>
+        <ul>
+          <li><a href="./#features">Features</a></li>
+          <li><a href="./#pricing">Pricing</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">Contact</p>
+        <ul>
+          <!-- PLACEHOLDER: replace with the real support address -->
+          <li><a href="mailto:support@example.com">support@example.com (placeholder)</a></li>
+          <li><a href="https://github.com/dwaipayanray95/vesper-cine">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p class="label">© <span id="year">2026</span> Vesper Cine</p>
+      <p class="label">Apple Log is a trademark of Apple Inc. Pixel is a trademark of Google LLC. Not affiliated with either.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

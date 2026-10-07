@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vesper Cine: RAW to Apple Log cinema camera app for Google Pixel</title>
+<meta name="description" content="Vesper Cine turns a Google Pixel into a cinema camera. It reads RAW sensor data and develops it on the GPU in real time into true Apple Log / Rec.2020, recorded as 10-bit HEVC or AV1.">
+<link rel="canonical" href="https://vesper.theawesomeray.com/">
+<meta name="theme-color" content="#0A0A0B">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vesper Cine">
+<meta property="og:title" content="Vesper Cine: your Pixel, a cinema camera">
+<meta property="og:description" content="RAW sensor data, developed on the GPU into true Apple Log / Rec.2020. 10-bit HEVC or AV1. No phone beautification baked in.">
+<meta property="og:url" content="https://vesper.theawesomeray.com/">
+<!-- PLACEHOLDER: replace with a 1200×630 JPG/PNG share image -->
+<meta property="og:image" content="https://vesper.theawesomeray.com/assets/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Pinyon+Script&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://vesper.theawesomeray.com/#app",
+      "name": "Vesper Cine",
+      "applicationCategory": "MultimediaApplication",
+      "applicationSubCategory": "Video camera",
+      "operatingSystem": "Android 11 or later",
+      "description": "Cinema camera app for Google Pixel that reads the sensor's RAW data and develops it on the GPU in real time into Apple Log / Rec.2020, recorded as 10-bit HEVC or AV1.",
+      "url": "https://vesper.theawesomeray.com/",
+      "featureList": [
+        "RAW sensor capture developed on the GPU in real time",
+        "Apple Log / Rec.2020 output",
+        "10-bit HEVC or AV1 recording",
+        "Per-device colour calibration",
+        "HQ oversampling from the full sensor",
+        "Motion-adaptive temporal noise reduction",
+        "False colour, focus peaking, zebra, waveform and 3x magnifier",
+        "Auto-exposure: native ISO first, then shutter, then gain",
+        "24, 25, 30, 48 and 60 fps"
+      ],
+      "offers": [
+        { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Early access", "price": "9.99", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Early access", "price": "399", "priceCurrency": "INR" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vesper.theawesomeray.com/#site",
+      "name": "Vesper Cine",
+      "url": "https://vesper.theawesomeray.com/"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Which phones does Vesper Cine support?", "acceptedAnswer": { "@type": "Answer", "text": "Vesper Cine currently supports the Google Pixel 10. Each supported phone gets its own colour calibration, so other models are added only after they have been calibrated and tested." } },
+        { "@type": "Question", "name": "Is Vesper Cine's Apple Log the same Apple Log as on an iPhone?", "acceptedAnswer": { "@type": "Answer", "text": "Vesper Cine encodes to the published Apple Log curve with Rec.2020 primaries, so footage is graded the same way: set the input colour space to Apple Log and the gamut to Rec.2020 in DaVinci Resolve, Final Cut Pro, Premiere Pro or any app that supports Apple Log." } },
+        { "@type": "Question", "name": "Does Vesper Cine record RAW video files?", "acceptedAnswer": { "@type": "Answer", "text": "No. It captures RAW sensor data and develops it in real time on the phone's GPU, then records a 10-bit HEVC or AV1 file in Apple Log. You get the latitude of a RAW-based pipeline with files that are small and edit like normal video." } },
+        { "@type": "Question", "name": "What resolution does Vesper Cine record?", "acceptedAnswer": { "@type": "Answer", "text": "Vesper Cine records 1080p, oversampled from the full sensor for detail. A native 4K (UHD) path is on the roadmap." } },
+        { "@type": "Question", "name": "Does Vesper Cine collect my data?", "acceptedAnswer": { "@type": "Answer", "text": "No. All processing happens on the phone. Vesper Cine uses the camera and microphone only to record, saves files to your device, and collects no personal data." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Vesper Cine home"><img src="assets/img/icon.svg" alt="" width="26" height="26">Vesper Cine</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#pipeline">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#devices">Devices</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <!-- PLACEHOLDER: replace href with the Play Store listing URL -->
+      <a class="btn btn-primary" href="#pricing">Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1. HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-copy reveal">
+        <p class="label"><span class="dot" aria-hidden="true"></span>Cinema camera for Google Pixel</p>
+        <h1 id="hero-title">Your Pixel, a <span class="script">cinema</span> camera.</h1>
+        <p class="lede">Vesper Cine reads your Pixel's RAW sensor data and develops it on the GPU, in real time, into true Apple Log. No sharpening, smoothing or tone mapping baked in. Just a clean, gradeable image.</p>
+        <div class="hero-actions">
+          <!-- PLACEHOLDER: replace href with the Play Store listing URL -->
+          <a class="btn btn-primary" href="#pricing" aria-describedby="play-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 3l14 9-14 9z"/></svg>
+            Get it on Google Play
+          </a>
+          <a class="btn btn-ghost" href="#pipeline">How it works</a>
+        </div>
+        <p id="play-note" class="placeholder-note">PLACEHOLDER: Play Store link coming soon</p>
+        <div class="spec-strip" aria-label="Key specifications">
+          <span>APPLE LOG · REC.2020</span><span>10-BIT HEVC / AV1</span><span>24–60 FPS</span><span>PIXEL 10</span>
+        </div>
+      </div>
+      <figure class="hero-figure reveal">
+        <div class="frame"><span class="c1"></span><span class="c2"></span>
+          <div class="device">
+            <!-- PLACEHOLDER: replace with a real landscape screenshot of the viewfinder -->
+            <img src="assets/img/screen-placeholder.svg" width="1600" height="720" alt="Vesper Cine viewfinder showing recording timecode, Apple Log at 24 fps with a 180° shutter, and ISO, white balance and codec readouts" fetchpriority="high">
+          </div>
+        </div>
+        <figcaption class="placeholder-note">PLACEHOLDER IMAGE: app screenshot to be supplied</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2. PIPELINE -->
+  <section id="pipeline" aria-labelledby="pipeline-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="label">The pipeline</p>
+        <h2 id="pipeline-title">From RAW to <span class="script">Apple Log</span>.</h2>
+        <p class="lede">How does Vesper Cine record Apple Log on a Pixel? It skips the phone's video processor completely. The app takes the sensor's RAW data and develops every frame itself on the GPU, with its own colour science, before encoding it.</p>
+      </div>
+
+      <ol class="pipeline">
+        <li class="reveal">
+          <p class="label">Capture</p>
+          <h3>Sensor RAW</h3>
+          <p>RAW10 straight off the sensor, with its real black and white levels and lens-shading map. Nothing has been processed yet.</p>
+        </li>
+        <li class="reveal">
+          <p class="label">Colour</p>
+          <h3>Per-device colour science</h3>
+          <p>Calibrated for each supported phone: dual-illuminant colour matrices, Kelvin and tint, and hot-pixel repair.</p>
+        </li>
+        <li class="reveal">
+          <p class="label">Develop</p>
+          <h3>GPU, in real time</h3>
+          <p>HQ oversampling from the full sensor, motion-adaptive noise reduction and lens correction, every frame on the Vulkan GPU.</p>
+        </li>
+        <li class="reveal">
+          <p class="label">Encode</p>
+          <h3>Apple Log · Rec.2020</h3>
+          <p>Scene-linear light mapped to the Apple Log curve in the Rec.2020 gamut. Highlights roll off to neutral instead of turning magenta.</p>
+        </li>
+        <li class="reveal">
+          <p class="label">Record</p>
+          <h3>10-bit HEVC or AV1</h3>
+          <p>Main10 files with AAC audio, tagged so your editor reads the colour correctly, saved to your phone.</p>
+        </li>
+      </ol>
+
+      <div class="versus">
+        <div class="reveal">
+          <p class="label">Typical phone video</p>
+          <h3>Finished for you, whether you like it or not.</h3>
+          <ul>
+            <li>Sharpening halos and noise smearing baked in</li>
+            <li>Tone mapping crushes shadows and lifts skin</li>
+            <li>8-bit or heavily processed HDR that breaks when graded</li>
+            <li>The look changes from scene to scene, so shots don't match</li>
+          </ul>
+        </div>
+        <div class="ours reveal">
+          <p class="label">Vesper Cine</p>
+          <h3>A clean negative, ready for your grade.</h3>
+          <ul>
+            <li>Developed from RAW, with no beautification</li>
+            <li>A flat, standard Apple Log curve that every major editor supports</li>
+            <li>10-bit Rec.2020, with room to push colour and exposure</li>
+            <li>Consistent, predictable images from shot to shot</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. FEATURES -->
+  <section id="features" aria-labelledby="features-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="label">Features</p>
+        <h2 id="features-title">Built like a <span class="script">camera</span>, not an app.</h2>
+        <p class="lede">The image controls and monitoring tools you would expect on a dedicated cinema camera, running on the phone in your pocket.</p>
+      </div>
+      <div class="features">
+        <article class="feature wide reveal">
+          <p class="label">01 · Colour science</p>
+          <h3>Its own colour, calibrated per device</h3>
+          <p>Vesper Cine doesn't rely on the phone's colour. Each supported phone is calibrated individually, so colours stay accurate and skin tones natural from your first take.</p>
+        </article>
+        <article class="feature wide reveal">
+          <p class="label">02 · HQ oversampling</p>
+          <h3>Full-sensor detail</h3>
+          <p>Detail is gathered from the whole sensor and anti-aliased down to the output resolution, giving fine texture without moiré or the brittle edges of digital sharpening.</p>
+        </article>
+        <article class="feature reveal">
+          <p class="label">03 · Noise reduction</p>
+          <h3>Motion-adaptive NR</h3>
+          <p>Temporal noise reduction aligns frames and backs off where things move, using a noise model measured from the sensor. Grain stays organic in low light.</p>
+        </article>
+        <article class="feature reveal">
+          <p class="label">04 · Monitoring</p>
+          <h3>Pro monitoring</h3>
+          <p>False colour, focus peaking, zebra, waveform and a 3× magnifier, all on a Rec.709 preview of your Log image.</p>
+          <div class="mon" aria-hidden="true">
+            <div class="fc"></div>
+            <div class="wf"><svg viewBox="0 0 100 40" preserveAspectRatio="none"><path d="M0 30 L10 26 L20 28 L30 18 L40 22 L50 12 L60 16 L70 9 L80 14 L90 11 L100 15" fill="none" stroke="#FFC107" stroke-width=".8" opacity=".9"/><path d="M0 34 L12 31 L24 33 L36 25 L48 27 L60 22 L72 24 L84 20 L100 23" fill="none" stroke="#EDEAE4" stroke-width=".6" opacity=".5"/></svg></div>
+          </div>
+        </article>
+        <article class="feature reveal">
+          <p class="label">05 · Exposure</p>
+          <h3>Clean auto-exposure</h3>
+          <p>When exposure is automatic, it works like a cinematographer would: native ISO first, then shutter (up to 180°), and only then extra gain. You get the least noise for the light you have.</p>
+        </article>
+        <article class="feature wide reveal">
+          <p class="label">06 · Frame rates</p>
+          <h3>Cinema frame rates</h3>
+          <p>Shoot at the cadence your project needs, from cinematic 24 to smooth slow motion at 60.</p>
+          <div class="fps" aria-label="Supported frame rates"><span>24</span><span>25</span><span>30</span><span>48</span><span>60</span></div>
+        </article>
+        <article class="feature wide reveal">
+          <p class="label">07 · Codecs</p>
+          <h3>10-bit HEVC or AV1</h3>
+          <p>Efficient 10-bit Main10 recording with selectable quality levels. Files stay small enough for a phone and are ready for DaVinci Resolve, Final Cut Pro or Premiere Pro.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. COMPARISON -->
+  <section id="compare" aria-labelledby="compare-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="label">Log vs graded</p>
+        <h2 id="compare-title">Flat by design. <span class="script">Yours</span> to grade.</h2>
+        <p class="lede">Apple Log looks flat straight out of the camera because it keeps the full tonal range for you to shape. Drag the handle to compare an ungraded frame with the same frame after grading.</p>
+      </div>
+      <div class="reveal">
+        <div class="frame"><span class="c1"></span><span class="c2"></span>
+          <div class="compare">
+            <!-- PLACEHOLDER: replace both images with a real Log frame and its grade (same framing, 16:9) -->
+            <img src="assets/img/log-placeholder.svg" width="1600" height="900" alt="Placeholder: ungraded Apple Log frame, flat and low in contrast" loading="lazy">
+            <img class="after" src="assets/img/graded-placeholder.svg" width="1600" height="900" alt="Placeholder: the same frame after colour grading, with full contrast and colour" loading="lazy">
+            <span class="tag l">APPLE LOG</span><span class="tag r">GRADED</span>
+            <input type="range" min="0" max="100" value="50" aria-label="Comparison slider: drag to reveal more of the Log or graded image">
+            <span class="handle" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="compare-meta">
+          <p class="placeholder-note">PLACEHOLDER IMAGES: replace with real Vesper Cine footage</p>
+          <p class="label">Grade in Resolve · FCP · Premiere</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. DEVICES -->
+  <section id="devices" aria-labelledby="devices-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="label">Supported devices</p>
+        <h2 id="devices-title">Calibrated, one phone at a <span class="script">time</span>.</h2>
+        <p class="lede">Which phones does Vesper Cine support? Right now, the Google Pixel 10. Because the colour science is calibrated per device, a phone is added only once it has been measured and tested.</p>
+      </div>
+      <div class="table-scroll reveal">
+        <table class="spec-table">
+          <caption class="label" style="text-align:left;padding-bottom:12px">Device support</caption>
+          <thead><tr><th scope="col">Device</th><th scope="col">Status</th><th scope="col">Output</th></tr></thead>
+          <tbody>
+            <tr><td>Google Pixel 10</td><td><span class="status ok">Supported</span></td><td>Apple Log · Rec.2020 · 1080p · 24–60 fps · HEVC / AV1 10-bit</td></tr>
+            <!-- PLACEHOLDER: add other Pixel models only once they are calibrated -->
+            <tr><td>Other Pixel models</td><td><span class="status later">Not yet</span></td><td>Each one needs its own calibration. No dates have been announced.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PRICING -->
+  <section id="pricing" aria-labelledby="pricing-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="label">Pricing</p>
+        <h2 id="pricing-title">One price. <span class="script">No</span> subscription.</h2>
+        <p class="lede">How much does Vesper Cine cost? There is a free version to try it, and early access to the full app is a one-time ₹399 or $9.99 on Google Play.</p>
+      </div>
+      <div class="plans">
+        <div class="plan reveal">
+          <p class="label">Free</p>
+          <p class="price">₹0</p>
+          <!-- PLACEHOLDER: confirm what the free version includes -->
+          <ul>
+            <li>PLACEHOLDER: free tier features to be confirmed</li>
+            <li>PLACEHOLDER: limitations to be confirmed</li>
+          </ul>
+          <a class="btn btn-ghost" href="#pricing" aria-describedby="free-note">Get the free version</a>
+          <p id="free-note" class="placeholder-note">PLACEHOLDER: Play Store link coming soon</p>
+        </div>
+        <div class="plan featured reveal">
+          <p class="label"><span class="dot" aria-hidden="true"></span>Early access</p>
+          <p class="price">₹399<small>/ $9.99 · one-time</small></p>
+          <ul>
+            <li>Full RAW-to-Apple Log pipeline</li>
+            <li>HEVC and AV1 10-bit recording, 24–60 fps</li>
+            <li>All monitoring tools: false colour, peaking, zebra, waveform, magnifier</li>
+            <li>Updates during early access</li>
+          </ul>
+          <!-- PLACEHOLDER: replace href with the Play Store listing URL -->
+          <a class="btn btn-primary" href="#pricing" aria-describedby="paid-note">Get early access on Google Play</a>
+          <p id="paid-note" class="placeholder-note">PLACEHOLDER: Play Store link coming soon. Prices may vary by region.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="label">FAQ</p>
+        <h2 id="faq-title">Questions, <span class="script">answered</span>.</h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>Which phones does Vesper Cine support?</summary>
+          <div class="answer"><p>Vesper Cine currently supports the Google Pixel 10. Each supported phone gets its own colour calibration, so other models are added only after they have been calibrated and tested.</p></div>
+        </details>
+        <details>
+          <summary>Is it the same Apple Log as on an iPhone?</summary>
+          <div class="answer"><p>Vesper Cine encodes to the published Apple Log curve with Rec.2020 primaries, so you grade it the same way. In DaVinci Resolve, Final Cut Pro, Premiere Pro or any app that supports Apple Log, set the input colour space to <strong>Apple Log</strong> and the gamut to <strong>Rec.2020</strong>.</p></div>
+        </details>
+        <details>
+          <summary>Does Vesper Cine record RAW video files?</summary>
+          <div class="answer"><p>No. It captures RAW sensor data and develops it in real time on the phone's GPU, then records a 10-bit HEVC or AV1 file in Apple Log. You get the latitude of a RAW-based pipeline with files that are small and edit like normal video.</p></div>
+        </details>
+        <details>
+          <summary>What resolution does it record?</summary>
+          <div class="answer"><p>Vesper Cine records 1080p, oversampled from the full sensor for detail. A native 4K (UHD) path is on the roadmap.</p></div>
+        </details>
+        <details>
+          <summary>How should I expose for Apple Log?</summary>
+          <div class="answer"><p>Expose so that 18% grey reads at about 0.49, which shows as the green band in false colour. By default there are about 5.5 stops of highlight headroom above middle grey, and clipped highlights fade to neutral.</p></div>
+        </details>
+        <details>
+          <summary>Why does my footage look flat and grey?</summary>
+          <div class="answer"><p>That's intended. Log footage keeps the full tonal range so you can grade it. Use the built-in Rec.709 preview while shooting, then apply an Apple Log to Rec.709 conversion or your own grade in post.</p></div>
+        </details>
+        <details>
+          <summary>Does my phone get hot?</summary>
+          <div class="answer"><p>Developing RAW video in real time is demanding. Vesper Cine watches Android's thermal forecast and steps its processing down gradually as the phone heats up. It keeps recording at minimal processing when hot, and stops only at the critical limit.</p></div>
+        </details>
+        <details>
+          <summary>Does Vesper Cine collect my data?</summary>
+          <div class="answer"><p>No. All processing happens on the phone. The app uses the camera and microphone only to record, saves files to your device, and collects no personal data. See the <a href="privacy.html">privacy policy</a>.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="./"><img src="assets/img/icon.svg" alt="" width="26" height="26">Vesper Cine</a>
+        <p class="lede" style="margin-top:18px;font-size:16px">A cinema camera app for Google Pixel. RAW in, Apple Log out.</p>
+      </div>
+      <div>
+        <p class="label">Product</p>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">Contact</p>
+        <ul>
+          <!-- PLACEHOLDER: replace with the real support address -->
+          <li><a href="mailto:support@example.com">support@example.com (placeholder)</a></li>
+          <li><a href="https://github.com/dwaipayanray95/vesper-cine">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p class="label">© <span id="year">2026</span> Vesper Cine</p>
+      <p class="label">Apple Log is a trademark of Apple Inc. Pixel is a trademark of Google LLC. Not affiliated with either.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
