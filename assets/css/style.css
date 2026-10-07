@@ -83,8 +83,10 @@ p { margin: 0 0 1em; }
   border-bottom: 1px solid var(--line);
 }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 500 15px var(--mono); letter-spacing: .22em; text-transform: uppercase; }
-.brand img { width: 26px; height: 26px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img { width: 30px; height: 30px; }
+.wordmark { font: 400 15px/1 "Michroma", var(--sans); letter-spacing: .18em; color: #F2F3F5; white-space: nowrap; }
+.wordmark span { color: var(--amber); margin-left: .55em; }
 .nav { display: flex; gap: 28px; align-items: center; }
 .nav a { text-decoration: none; font-size: 14px; color: var(--muted); }
 .nav a:hover { color: var(--text); }

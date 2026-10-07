@@ -8,7 +8,7 @@ Static site for Vesper Cine. No build step: plain HTML, CSS and JS, served by Gi
 
 ## Replacing placeholders
 Search for `PLACEHOLDER` in the HTML files. To find them:
-- Images live in `assets/img/`. Replace `screen-placeholder.svg`, `log-placeholder.svg` and `graded-placeholder.svg` (keep 16:9 for the comparison images), then update the `src` attributes. Add `og-image.jpg` (1200×630) for link previews.
+- Images live in `assets/img/`. Replace `screen-placeholder.svg`, `log-placeholder.svg` and `graded-placeholder.svg` (keep 16:9 for the comparison images), then update the `src` attributes. `og-image.jpg` is the 1200×630 link-preview card.
 - For fast loading, export images as WebP/AVIF, about 1600 px wide, for example: `cwebp -q 82 in.jpg -o log.webp`.
 - Play Store URL: replace the `href="#pricing"` on the Google Play buttons.
 
