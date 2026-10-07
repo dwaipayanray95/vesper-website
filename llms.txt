@@ -1,6 +1,6 @@
 # Vesper Cine
 
-> Vesper Cine is an Android cinema camera app for Google Pixel phones (currently the Pixel 10). It reads the sensor's RAW data, develops it on the GPU in real time with its own per-device colour science, and records Apple Log / Rec.2020 video as 10-bit HEVC or AV1 at 1080p, 24/25/30/48/60 fps. No phone sharpening, tone mapping or beautification is baked in. Price: a free version plus early access at ₹399 / $9.99 one-time on Google Play. All processing is on-device and no personal data is collected.
+> Vesper Cine is an Android cinema camera app (currently supports the Google Pixel 10). It reads the sensor's RAW data, develops it on the GPU in real time with its own per-device colour science, and records Apple Log / Rec.2020 video as 10-bit HEVC or AV1 at 1080p, 24/25/30/48/60 fps. No phone sharpening, tone mapping or beautification is baked in. Price: a free version plus early access at ₹399 / $9.99 one-time on Google Play. All processing is on-device and no personal data is collected.
 
 - [Home](https://vesper.theawesomeray.com/): features, pipeline, devices, pricing, FAQ
 - [Privacy policy](https://vesper.theawesomeray.com/privacy.html)
