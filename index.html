@@ -52,8 +52,8 @@
       ],
       "offers": [
         { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "Early access", "price": "9.99", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "Early access", "price": "399", "priceCurrency": "INR" }
+        { "@type": "Offer", "name": "Vesper Pro (early access)", "price": "9.99", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Vesper Pro (early access)", "price": "399", "priceCurrency": "INR" }
       ]
     },
     {
@@ -119,15 +119,17 @@
       </div>
       <figure class="hero-figure reveal">
         <div class="frame"><span class="c1"></span><span class="c2"></span>
-          <div class="device">
-            <!-- PLACEHOLDER: replace with a real landscape screenshot of the viewfinder -->
-            <img src="assets/img/screen-placeholder.svg" width="1600" height="720" alt="Vesper Cine viewfinder showing recording timecode, Apple Log at 24 fps with a 180° shutter, and ISO, white balance and codec readouts" fetchpriority="high">
-          </div>
+          <img class="device-shot" src="assets/img/screen-colour.webp" width="988" height="448" alt="Vesper Cine viewfinder in Log View, split between the flat Apple Log image and the Rec.709 LUT preview, with FPS 24, 180° shutter, ISO 100 native, 4300K and OIS readouts" fetchpriority="high">
         </div>
-        <figcaption class="placeholder-note">PLACEHOLDER IMAGE: app screenshot to be supplied</figcaption>
+        <figcaption class="label">Log View · Apple Log and Rec.709 LUT, side by side</figcaption>
       </figure>
     </div>
   </section>
+
+  <figure class="still reveal">
+    <img src="assets/img/still-street.webp" srcset="assets/img/still-street-960.webp 960w, assets/img/still-street.webp 1920w" sizes="100vw" width="1920" height="700" alt="Rain-soaked city street at night, neon hotel sign and wet cobblestones, a figure in a yellow raincoat on the pavement" loading="lazy">
+    <figcaption class="wrap"><span class="label"><span class="dot" aria-hidden="true"></span>RAW10 · Apple Log · 10-bit</span><span class="still-line">Cinema, straight from the sensor.</span></figcaption>
+  </figure>
 
   <!-- 2. PIPELINE -->
   <section id="pipeline" aria-labelledby="pipeline-title">
@@ -204,6 +206,7 @@
           <p class="label">01 · Colour science</p>
           <h3>Its own colour, calibrated per device</h3>
           <p>Vesper Cine doesn't rely on the phone's colour. Each supported phone is calibrated individually, so colours stay accurate and skin tones natural from your first take.</p>
+                  <img class="shot" src="assets/img/screen-image.webp" width="988" height="448" alt="Vesper Cine viewfinder with natural skin tones, no tone mapping or sharpening halos, recording RAW10 developed on the GPU" loading="lazy">
         </article>
         <article class="feature wide reveal">
           <p class="label">02 · HQ oversampling</p>
@@ -214,20 +217,19 @@
           <p class="label">03 · Noise reduction</p>
           <h3>Motion-adaptive NR</h3>
           <p>Temporal noise reduction aligns frames and backs off where things move, using a noise model measured from the sensor. Grain stays organic in low light.</p>
+                  <img class="shot" src="assets/img/screen-nr.webp" width="988" height="448" alt="Vesper Cine viewfinder showing a low-light neon scene with clean shadows and fine texture" loading="lazy">
         </article>
         <article class="feature reveal">
           <p class="label">04 · Monitoring</p>
           <h3>Pro monitoring</h3>
           <p>False colour, focus peaking, zebra, waveform and a 3× magnifier, all on a Rec.709 preview of your Log image.</p>
-          <div class="mon" aria-hidden="true">
-            <div class="fc"></div>
-            <div class="wf"><svg viewBox="0 0 100 40" preserveAspectRatio="none"><path d="M0 30 L10 26 L20 28 L30 18 L40 22 L50 12 L60 16 L70 9 L80 14 L90 11 L100 15" fill="none" stroke="#FFC107" stroke-width=".8" opacity=".9"/><path d="M0 34 L12 31 L24 33 L36 25 L48 27 L60 22 L72 24 L84 20 L100 23" fill="none" stroke="#EDEAE4" stroke-width=".6" opacity=".5"/></svg></div>
-          </div>
+          <img class="shot" src="assets/img/screen-monitoring.webp" width="988" height="448" alt="Vesper Cine false colour view with histogram and waveform scopes overlaid on a landscape" loading="lazy">
         </article>
         <article class="feature reveal">
           <p class="label">05 · Exposure</p>
           <h3>Clean auto-exposure</h3>
           <p>When exposure is automatic, it works like a cinematographer would: native ISO first, then shutter (up to 180°), and only then extra gain. You get the least noise for the light you have.</p>
+                  <img class="shot" src="assets/img/screen-control.webp" width="988" height="448" alt="Vesper Cine viewfinder with manual shutter, native ISO and Kelvin controls and a tap-to-focus box" loading="lazy">
         </article>
         <article class="feature wide reveal">
           <p class="label">06 · Frame rates</p>
@@ -299,28 +301,29 @@
       <div class="section-head reveal">
         <p class="label">Pricing</p>
         <h2 id="pricing-title">One price. <span class="script">No</span> subscription.</h2>
-        <p class="lede">How much does Vesper Cine cost? There is a free version to try it, and early access to the full app is a one-time ₹399 or $9.99 on Google Play.</p>
+        <p class="lede">How much does Vesper Cine cost? Vesper Cine is free to shoot with. Vesper Pro, a one-time ₹399 or $9.99 on Google Play, removes the clip limit and ads and unlocks 50/60 fps, open gate and MAX quality.</p>
       </div>
       <div class="plans">
         <div class="plan reveal">
           <p class="label">Free</p>
           <p class="price">₹0</p>
-          <!-- PLACEHOLDER: confirm what the free version includes -->
           <ul>
-            <li>PLACEHOLDER: free tier features to be confirmed</li>
-            <li>PLACEHOLDER: limitations to be confirmed</li>
+            <li>The full RAW-to-Apple Log pipeline and colour science</li>
+            <li>All monitoring tools: false colour, peaking, zebra, waveform, magnifier</li>
+            <li>24, 25 and 30 fps</li>
+            <li>Clip limit and ads</li>
           </ul>
           <a class="btn btn-ghost" href="#pricing" aria-describedby="free-note">Get the free version</a>
           <p id="free-note" class="placeholder-note">PLACEHOLDER: Play Store link coming soon</p>
         </div>
         <div class="plan featured reveal">
-          <p class="label"><span class="dot" aria-hidden="true"></span>Early access</p>
+          <p class="label"><span class="dot" aria-hidden="true"></span>Vesper Pro · Early access</p>
           <p class="price">₹399<small>/ $9.99 · one-time</small></p>
           <ul>
-            <li>Full RAW-to-Apple Log pipeline</li>
-            <li>HEVC and AV1 10-bit recording, 24–60 fps</li>
-            <li>All monitoring tools: false colour, peaking, zebra, waveform, magnifier</li>
-            <li>Updates during early access</li>
+            <li>Everything in Free</li>
+            <li>Unlimited clips, no ads</li>
+            <li>48, 50 and 60 fps</li>
+            <li>Open gate (4:3 full sensor) and MAX recording quality</li>
           </ul>
           <!-- PLACEHOLDER: replace href with the Play Store listing URL -->
           <a class="btn btn-primary" href="#pricing" aria-describedby="paid-note">Get early access on Google Play</a>

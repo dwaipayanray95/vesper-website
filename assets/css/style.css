@@ -257,3 +257,14 @@ section { padding: clamp(96px, 14vw, 180px) 0; border-top: 1px solid var(--line)
   .pipeline::before { transition: none; }
   .js .pipeline:not(.is-in) { --draw: 1; }
 }
+
+/* Product imagery */
+.device-shot { width: 100%; border-radius: 26px; box-shadow: 0 40px 120px -40px rgba(255,193,7,.18), 0 30px 80px rgba(0,0,0,.6); }
+.hero-figure figcaption { margin-top: 18px; }
+.shot { width: 100%; margin-top: 10px; border-radius: 14px; }
+.still { margin: 0; position: relative; border-top: 1px solid var(--line); }
+.still img { width: 100%; height: clamp(320px, 60vw, 760px); object-fit: cover; }
+.still figcaption { position: absolute; left: 0; right: 0; bottom: clamp(20px, 4vw, 48px); display: grid; gap: 10px; }
+.still-line { font-family: var(--serif); font-weight: 300; font-size: clamp(28px, 4.4vw, 56px); line-height: 1.1; text-shadow: 0 2px 30px rgba(0,0,0,.8); }
+.still::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,11,.85), transparent 45%); pointer-events: none; }
+.still figcaption { z-index: 1; }
