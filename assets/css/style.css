@@ -268,3 +268,5 @@ section { padding: clamp(96px, 14vw, 180px) 0; border-top: 1px solid var(--line)
 .still-line { font-family: var(--serif); font-weight: 300; font-size: clamp(28px, 4.4vw, 56px); line-height: 1.1; text-shadow: 0 2px 30px rgba(0,0,0,.8); }
 .still::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,11,.85), transparent 45%); pointer-events: none; }
 .still figcaption { z-index: 1; }
+.hq-diagram { margin: 10px 0 0; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: #0c0c0e; }
+.hq-diagram svg { width: 100%; height: auto; display: block; }

@@ -212,6 +212,23 @@
           <p class="label">02 · HQ oversampling</p>
           <h3>Full-sensor detail</h3>
           <p>Detail is gathered from the whole sensor and anti-aliased down to the output resolution, giving fine texture without moiré or the brittle edges of digital sharpening.</p>
+                  <figure class="hq-diagram" aria-label="Diagram: the full 4000 by 2256 sensor readout is downsampled with anti-aliasing to a 1920 by 1080 output, so every output pixel is built from about four sensor photosites">
+            <svg viewBox="0 0 520 210" role="img" aria-hidden="true">
+              <defs>
+                <pattern id="hq-fine" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="none" stroke="#2c2c31" stroke-width="1"/></pattern>
+                <pattern id="hq-coarse" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="none" stroke="#5a4a12" stroke-width="1"/></pattern>
+              </defs>
+              <rect x="10" y="30" width="240" height="135" fill="url(#hq-fine)" stroke="#9A968E" stroke-width="1"/>
+              <text x="10" y="20" fill="#9A968E" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="1.5">SENSOR · 4000×2256</text>
+              <rect x="22" y="42" width="24" height="24" fill="none" stroke="#FFC107" stroke-width="1.5"/>
+              <path d="M262 98 H318" stroke="#FFC107" stroke-width="1.5"/><path d="M312 92 L320 98 L312 104" fill="none" stroke="#FFC107" stroke-width="1.5"/>
+              <text x="290" y="88" fill="#FFC107" font-family="JetBrains Mono, monospace" font-size="10" text-anchor="middle" letter-spacing="1">AA</text>
+              <rect x="330" y="52" width="160" height="90" fill="url(#hq-coarse)" stroke="#FFC107" stroke-width="1"/>
+              <rect x="342" y="64" width="12" height="12" fill="#FFC107" opacity=".85"/>
+              <text x="330" y="42" fill="#FFC107" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="1.5">OUTPUT · 1920×1080</text>
+              <text x="10" y="195" fill="#9A968E" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1">≈4 PHOTOSITES → 1 OUTPUT PIXEL · NO BINNING, NO UPSCALING</text>
+            </svg>
+          </figure>
         </article>
         <article class="feature reveal">
           <p class="label">03 · Noise reduction</p>
@@ -257,16 +274,16 @@
       <div class="reveal">
         <div class="frame"><span class="c1"></span><span class="c2"></span>
           <div class="compare">
-            <!-- PLACEHOLDER: replace both images with a real Log frame and its grade (same framing, 16:9) -->
-            <img src="assets/img/log-placeholder.svg" width="1600" height="900" alt="Placeholder: ungraded Apple Log frame, flat and low in contrast" loading="lazy">
-            <img class="after" src="assets/img/graded-placeholder.svg" width="1600" height="900" alt="Placeholder: the same frame after colour grading, with full contrast and colour" loading="lazy">
+            <!-- Swap log.webp / graded.webp for a real Vesper Cine Log frame and its grade (same framing, 16:9) -->
+            <img src="assets/img/log.webp" width="1600" height="900" alt="Night street scene as a flat, low-contrast Log image" loading="lazy">
+            <img class="after" src="assets/img/graded.webp" width="1600" height="900" alt="The same night street scene graded, with deep blacks and saturated neon" loading="lazy">
             <span class="tag l">APPLE LOG</span><span class="tag r">GRADED</span>
             <input type="range" min="0" max="100" value="50" aria-label="Comparison slider: drag to reveal more of the Log or graded image">
             <span class="handle" aria-hidden="true"></span>
           </div>
         </div>
         <div class="compare-meta">
-          <p class="placeholder-note">PLACEHOLDER IMAGES: replace with real Vesper Cine footage</p>
+          <p class="label">Illustrative: Log look simulated from the graded frame</p>
           <p class="label">Grade in Resolve · FCP · Premiere</p>
         </div>
       </div>
